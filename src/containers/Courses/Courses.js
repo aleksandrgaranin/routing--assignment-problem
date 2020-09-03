@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 import './Courses.css';
+import Course from '../Course/Course';
 // import Course from '../Course/Course';
 
 class Courses extends Component {
@@ -37,7 +38,8 @@ class Courses extends Component {
                 <h1>Amazing Udemy Courses</h1>
                 <section className="Courses">
                     {courses}
-                </section>                
+                </section>       
+                <Route path={this.props.match.url + '/:courseId'} component={Course}></Route>         
             </div>
         );
     }
