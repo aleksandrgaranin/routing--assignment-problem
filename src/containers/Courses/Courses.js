@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './Courses.css';
 // import Course from '../Course/Course';
 
@@ -18,7 +18,12 @@ class Courses extends Component {
         let courses = <p style={{textAlign:'center'}}>Somethin went wrong</p>
         courses = this.state.courses.map(course => {
             return (
-                <Link key={course.id} to= {this.props.match.url + '/' + course.id + '/' + course.title} > 
+                <Link 
+                key={course.id} 
+                to= {{
+                    pathname: this.props.match.url + '/' + course.id,
+                    search: '?title=' + course.title
+                }} > 
                     <article className="Course" > 
                             {course.title}
                     </article>

@@ -27,7 +27,7 @@ class App extends Component {
           </ul>
           <Switch>
             <Route path="/users" component={Users}></Route>
-            <Route path="/courses/:courseId/:courseTitle" component={Course}></Route>
+            <Route path="/courses/:courseId" component={Course}></Route>
             <Route path="/courses" component={Courses}></Route>
             <Route render={ErrorPage}></Route>
           </Switch>
