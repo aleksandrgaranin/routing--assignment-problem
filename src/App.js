@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Link, Switch, Redirect} from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 import ErrorPage from './containers/ErrorPage/ErrorPage';
-import Course from './containers/Course/Course'
 
 class App extends Component {
   render () {
@@ -26,9 +25,9 @@ class App extends Component {
             <li><Link to="/courses">Courses</Link></li>
           </ul>
           <Switch>
-            <Route path="/users" component={Users}></Route>
-            
+            <Route path="/users" component={Users}></Route>            
             <Route path="/courses" component={Courses}></Route>
+            <Redirect from="/all-courses" to="/courses"/>
             <Route component={ErrorPage}></Route>
           </Switch>
         </div>
